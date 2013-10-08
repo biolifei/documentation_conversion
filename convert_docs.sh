@@ -5,8 +5,8 @@ if [ -z "$1" ]; then
 	exit
 fi
 
-if [ ! -d "$1" ]; then
-	echo "The directory specified for the new git repository does not exist. Please create it first"
+if [ -d "$1" ]; then
+	echo "The directory specified for the new git repository already exists. Aborting"
 	exit
 fi
 
@@ -17,7 +17,8 @@ fi
 # Build the doc html
 #doxygen
 
-# Convert to github-flavored markdown
+# Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
+mkdir $1
 FILES=$(find html -type f -name *.html)
 for f in $FILES
 do
@@ -28,5 +29,7 @@ do
 	pandoc -f html -t markdown_github -o ${markdown_name} ${f}.clean
 done
 
-#for i in `ls *.html | cut -d'.' -f1`; do pandoc -f html -t markdown_github -o ${i}.md ${i}.mediawiki
+#Copy manually created Home page and images directory to new repo
+cp -r images $1
+cp Home.md $1
 
