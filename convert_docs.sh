@@ -18,18 +18,34 @@ fi
 #doxygen
 
 # Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
-mkdir $1
+# and cleanup specific html items with custom script
 FILES=$(find html -type f -name *.html)
 for f in $FILES
 do
-	basename=`echo ${f} | cut -d'.' -f1 | sed s/html//`
-	markdown_name="$1$basename.md"
 	echo "converting file: ${f}"
-	iconv -f utf8 -t utf8 -c ${f} > ${f}.clean
-	pandoc -f html -t markdown_github -o ${markdown_name} ${f}.clean
+
+	#Cleanup the HTML
+	iconv -f utf8 -t utf8 -c ${f} > ${f}.no_utf
+	./sanitize_html.py -i ${f}.no_utf -o ${f}.clean	
+
+	#Convert to markdown
+	markdown_name=`echo ${f} | cut -d'.' -f1 | sed s/html/markdown/`
+	pandoc -f html -t markdown_github -o ${markdown_name}.md.dirty ${f}.clean
+
+	#Cleanup the markdown
+	./cleanup_markdown.py -i ${markdown_name}.md.dirty -o ${markdown_name}.md
+	rm ${markdown_name}.md.dirty
+
 done
 
 #Copy manually created Home page and images directory to new repo
+mkdir $1
 cp -r images $1
+cp -r markdown $1
 cp Home.md $1
+
+cd $1
+git init
+git add .
+git commit -m "Initial commit"
 

@@ -15,14 +15,22 @@ fragment_pattern = re.compile('~~*')
 #Remove the Generated on line
 generated_pattern = re.compile('Generated on*')
 
+#Remove the "New_Library contains code for this purpose" line
+new_lib_pattern = re.compile(r'New\\_Library contains code')
+
+
 old_file = open(args.input)
 new_file = open(args.output, 'w')
 for line in old_file:
 	if fragment_pattern.match(line):
-		line = "```"
+		line = "```\n"
 		new_file.write(line)
 	elif generated_pattern.match(line):
 		#do nothing, removes the line
 		line = ""
+	elif new_lib_pattern.match(line):
+		line = "Application purpose\n"
+		new_file.write(line)
 	else:
+		line = line.replace(' .nosp@m. ', '')
 		new_file.write(line)
