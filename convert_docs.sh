@@ -20,8 +20,7 @@ fi
 # Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
 # and cleanup specific html items with custom script
 FILES=$(find html -type f -name *.html)
-for f in $FILES
-do
+for f in $FILES; do
 	echo "converting file: ${f}"
 
 	#Cleanup the HTML
@@ -38,14 +37,16 @@ do
 
 done
 
-#Copy manually created Home page and images directory to new repo
-mkdir $1
-cp -r images $1
-cp -r markdown $1
-cp Home.md $1
+./organize_repo.sh
 
-cd $1
-git init
-git add .
-git commit -m "Initial commit"
+#Copy manually created Home page and images directory to new repo
+#mkdir $1
+#cp -r images $1
+#cp -r markdown $1
+#cp Home.md $1
+
+#cd $1
+#git init
+#git add .
+#git commit -m "Initial commit"
 
