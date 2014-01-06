@@ -11,6 +11,9 @@ for f in $FILES; do
 	mv ${old_name} ${new_name}
 done
 
+#Rename using scons to build documentation
+mv using_scons.md Build-Documenation.md
+
 
 mkdir application_documentation
 app_pages=(\
@@ -119,7 +122,7 @@ done
 
 mkdir build_documentation
 build_pages=(\
-using_scons.md
+Build-Documentation.md
 )
 for f in "${build_pages[@]}"; do
 	mv ${f} build_documentation/

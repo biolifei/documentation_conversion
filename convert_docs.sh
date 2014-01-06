@@ -11,14 +11,15 @@ if [ -d "$1" ]; then
 fi
 
 # Clean out the existing docs.
-rm -rf html/*
-rm -rf markdown/*
+#rm -rf html/
+rm -rf markdown/
 
 # Build the doc html
-doxygen
+#doxygen
 
 # Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
 # and cleanup specific html items with custom script
+mkdir markdown
 FILES=$(find html -type f -name *.html)
 for f in $FILES; do
 	echo "converting file: ${f}"
@@ -44,6 +45,9 @@ mkdir $1
 cp -r images $1
 cp -r markdown $1
 cp Home.md $1
+cp Application-Documentation.md $1
+cp Development-Documentation.md $1
+cp Rosetta-Basics.md $1
 
 cd $1
 git init

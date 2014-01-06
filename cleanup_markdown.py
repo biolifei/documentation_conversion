@@ -18,9 +18,14 @@ generated_pattern = re.compile('Generated on*')
 #Remove the "New_Library contains code for this purpose" line
 new_lib_pattern = re.compile(r'New\\_Library contains code')
 
+#Convert file name to page title
+title=args.input.split('/')[-1].split('.')[0].replace("_", " ").title()
 
 old_file = open(args.input)
 new_file = open(args.output, 'w')
+
+#add the page title to the first line of the new file
+new_file.write("<!-- --- title: " + title + " -->")
 for line in old_file:
 	if fragment_pattern.match(line):
 		line = "```\n"
