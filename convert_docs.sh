@@ -15,7 +15,10 @@ fi
 rm -rf markdown/
 
 # Build the doc html
-#doxygen
+
+if [ ! -d 'html' ]; then
+  doxygen
+fi
 
 # Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
 # and cleanup specific html items with custom script
@@ -29,7 +32,7 @@ for f in $FILES; do
 	./sanitize_html.py -i ${f}.no_utf -o ${f}.clean	
 
 	#Convert to markdown
-	markdown_name=`echo ${f} | cut -d'.' -f1 | sed s/html/markdown/`
+	markdown_name=`echo ${f} | cut -d'.' -f1 | sed -e s/html/markdown/`
 	pandoc -f html -t markdown_github -o ${markdown_name}.md.dirty ${f}.clean
 
 	#Cleanup the markdown
@@ -43,7 +46,7 @@ done
 #Copy manually created Home page and images directory to new repo
 mkdir $1
 cp -r images $1
-cp -r markdown $1
+cp -r markdown/* $1
 cp Home.md $1
 cp Application-Documentation.md $1
 cp Development-Documentation.md $1
