@@ -97,7 +97,6 @@ multistate_design_ga.md \
 next_generation_KIC.md \
 oop_design.md \
 pepspec.md \
-pilot_apps_info.md \
 pmut_scan_parallel.md \
 prepare_template_for_mr.md \
 pymol_server.md \

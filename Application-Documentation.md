@@ -39,7 +39,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Loop modeling|loopmodel]]
 -  [[CCD loop modeling|loopmodel_ccd]] - Sample loop conformations using fragments and the CCD closure algorithm.
 -  [[Kinematic loop modeling|loopmodel_kinematic]] - Sample loop conformations using the kinematic closure algorithm.
--  [[Next-generation KIC|next_generation_KIC.md]] - A newer version of loop modeling with kinematic closure.
+-  [[Next-generation KIC|next_generation_KIC]] - A newer version of loop modeling with kinematic closure.
 -  [[Stepwise assembly of protein loops|swa_protein_main]] - Generate three-dimensional de novo models of protein segments without surrounding sidechains.  
     * [[Stepwise assembly of long loops|swa_protein_long_loop]] - For loops greater than 4-5 residues.  
 
@@ -56,7 +56,7 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Symmetric docking|sym_dock]] - Determine the structure of symmetric homooligomers.  
 
-- [[Chemically conjugated docking|ubq_docking]] - Determine the structures of ubiquitin conjugated proteins.  
+- [[Chemically conjugated docking|ubq_conjugated]] - Determine the structures of ubiquitin conjugated proteins.  
  
 ###Antibody Docking
 - [[Antibody protocol|antibody_protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
@@ -164,9 +164,8 @@ $$$$$$$$$$$$$$$$$
 
 - [[hotspot_hash]]
 - [[hshash_utils]]
-- [[pilot apps info]]
 
-Was documented, documentation disappeared.
+Was documented, documentation disappeared:
 
 - [[Idealization|app_idealization]] - Generate structures with ideal Rosetta bond lengths and angles that are as close as possible to the input structures.  
 
