@@ -1,8 +1,8 @@
 ####Fundamental Rosetta concepts
-- [[Minimization Overview|minimization_overview]]
-- [[Packer Task|packer_task]]
-- [[The Atom Tree|atomtree_overview]]
-- [[The Fold Tree|foldtree_overview]]
+- [[Minimization Overview]]
+- [[Packer Task]]
+- [[Foldtree Overview]]
+- [[AtomTree Overview]]
 - [[Symmetry]]
 
 ####Controling Rosetta Execution
@@ -10,15 +10,15 @@
 
 ####Common File Formats
 - [[Resfiles]]
-- [[Movemap file|movemap_file]]
-- [[Constraint file|constraint_file]]
-- [[Matcher Constraint Files|match_cstfile_format]]
+- [[Movemap file]]
+- [[Constraint file]]
+- [[Matcher (Enzdes) Constraint Files|match-cstfile-format]]
 
 ####Preparing structures to be used by Rosetta
-- [[Preparing structures|preparing_structures]]
-- [[Preparing structures with relax|prepare_pdb_for_rosetta_with_relax]]
-- [[Preparing ligands|preparing_ligands]]
+- [[Preparing structures]]
+- [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
+- [[Preparing ligands]]
 - [[Making rosetta robust for running on large number of inputs|robust]]
 
 ####Misc
-- [[Database interface|sqlite3_interface]]
+- [[Database interface|sqlite3-interface]]
