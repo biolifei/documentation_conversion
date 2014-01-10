@@ -96,6 +96,7 @@ mr-protocols.md \
 multistate-design-ga.md \
 next-generation-KIC.md \
 oop-design.md \
+opt-e-parallel-doc.md \
 pepspec.md \
 pmut-scan-parallel.md \
 prepare-template-for-mr.md \
@@ -106,6 +107,7 @@ residue-energy-breakdown.md \
 rna-assembly.md \
 rna-denovo.md \
 rna-design.md \
+rna-thread.md \
 rosetta-dna.md \
 score-commands.md \
 sequence-recovery.md \
@@ -129,6 +131,7 @@ basics_pages=(\
 atomtree-overview.md \
 constraint-file.md \
 foldtree-overview.md \
+full-options-list.md \
 jd2.md \
 match-cstfile-format.md \
 minimization-overview.md \
@@ -139,10 +142,9 @@ preparing-structures.md \
 prepare-pdb-for-rosetta-with-relax.md \
 robust.md \
 resfiles.md \
-#resfile-reader.md \
+r-n-a-protein-changes.md \
 sqlite3-interface.md \
 symmetry.md \
-#writing-an-app.md \
 )
 for f in "${basics_pages[@]}"; do
 	mv ${f} rosetta_basics/
@@ -154,6 +156,30 @@ Build-Documentation.md
 )
 for f in "${build_pages[@]}"; do
 	mv ${f} build_documentation/
+done
+
+mkdir development_documentation
+development_pages=(\
+rosetta-tests.md \
+)
+for f in "${development_pages[@]}"; do
+	mv ${f} development_documentation/
+done
+
+mkdir junk
+junk_pages=(\
+annotated.md \
+classes.md \
+directory-template-page.md \
+examples.md \
+index.md \
+pages.md \
+pilot-apps-info.md \
+template-index-page.md \
+using-subversion.md \
+)
+for f in "${junk_pages[@]}"; do
+	mv ${f} junk/
 done
 
 mkdir uncategorized

@@ -25,6 +25,8 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Comparative modeling|minirosetta-comparative-modeling]] - Build structural models of proteins using one or more known structures as templates for modeling.  
 
+- [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
+
 - [[Fold-and-dock]] - Predict 3-dimentional structures of symetric homooligomers.  
 
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
@@ -152,6 +154,8 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[Loops from density]] - Create Rosetta loop files for regions of a protein with poor local fit to electron density.  
 
 - [[Sequence recovery]] - Calculate the mutations and native recovery from Rosetta design runs.
+
+- [[OptE|opt-e-parallel-doc]] - Refit weights in a scorefunction to optimize given metrics.  
 
 ## Other
 

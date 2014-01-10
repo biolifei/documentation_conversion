@@ -1,4 +1,4 @@
-####Fundamental Rosetta concepts
+####Fundamental Rosetta Concepts
 - [[Minimization Overview]]
 - [[Packer Task]]
 - [[Foldtree Overview]]
@@ -7,6 +7,7 @@
 
 ####Controling Rosetta Execution
 - [[JD2]]
+- [[r-n-a-protein-changes]] - Changes to get Rosetta to read RNA & protein simultaneously (I don't think these are needed anymore.)
 
 ####Common File Formats
 - [[Resfiles]]
@@ -22,3 +23,5 @@
 
 ####Misc
 - [[Database interface|sqlite3-interface]]
+- [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
+

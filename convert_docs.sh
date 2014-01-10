@@ -47,6 +47,7 @@ done
 mkdir $1
 cp -r images $1
 cp -r markdown/* $1
+rm -rf ${1}/junk/
 cp Home.md $1
 cp Application-Documentation.md $1
 cp Development-Documentation.md $1
