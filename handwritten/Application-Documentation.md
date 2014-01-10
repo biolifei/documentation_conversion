@@ -94,7 +94,6 @@ While most of these applications focus on prediction, many have options which wi
 - [[Pepspec]] - Evaluate and design peptide-protein interactions.  
 
 - [[Rosetta DNA]] (RosettaDNA) - Design and modle protein interactions to DNA.  
-    * [[DNA interface design]] (RosettaDNA) - Design and modle protein interactions to DNA.  
 
 - [[RNA design]] - Optimize RNA sequence for fixed backbones.  
 
@@ -102,7 +101,6 @@ While most of these applications focus on prediction, many have options which wi
 - [[OOP design]] - Design proteins with oligooxopiperazine residues.  
 
 - [[Multistate design|mpi-msd]] - Optimize proteins for multiple desired and undesired contexts.
-    * [[DNA interface multistate design|multistate-design-ga]] - An earlier version tailored to DNA interfaces.  
 
 - [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
 
@@ -166,8 +164,6 @@ These applications serve mainly to support other Rosetta applications, or to ass
 
 $$$$$$$$$$$$$$$$$
 
-- [[hotspot-hash]]
-- [[hshash-utils]]
 
 Was documented, documentation disappeared:
 

@@ -69,7 +69,6 @@ extract-atomtree-diffs.md \
 fixbb-with-hpatch.md \
 fixbb.md \
 flex-pep-dock.md \
-flex-pep-docking.md \
 floppy-tail.md \
 fold-and-dock.md \
 fragment-picker.md \
@@ -166,12 +165,27 @@ for f in "${development_pages[@]}"; do
 	mv ${f} development_documentation/
 done
 
+mkdir pilot
+pilot_pages=(\
+hotspot-hash.md \
+hshash-utils.md \
+multi-residue-ligand-dock.md \
+multistate-design-ga.md \
+)
+for f in "${pilot_pages[@]}"; do
+	mv ${f} pilot/
+done
+
 mkdir junk
 junk_pages=(\
 annotated.md \
 classes.md \
 directory-template-page.md \
+## Redundant, this version is in pilot
+dna_interface_design.md \
 examples.md \
+## Redundant, this version is in pilot
+flex-pep-docking.md \
 index.md \
 pages.md \
 pilot-apps-info.md \
