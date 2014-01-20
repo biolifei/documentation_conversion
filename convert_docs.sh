@@ -57,6 +57,8 @@ cp -r markdown/* $1
 rm -rf ${1}/junk/
 cp -r handwritten/* $1
 
+cp remove_internal.py $1
+
 cd $1
 git init
 git add .

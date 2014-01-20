@@ -226,15 +226,15 @@ for f in "${development_pages[@]}"; do
 	mv ${f} development_documentation/
 done
 
-mkdir pilot
-pilot_pages=(\
+mkdir internal
+internal_pages=(\
 hotspot-hash.md \
 hshash-utils.md \
 multi-residue-ligand-dock.md \
 multistate-design-ga.md \
 )
-for f in "${pilot_pages[@]}"; do
-	mv ${f} pilot/
+for f in "${internal_pages[@]}"; do
+	mv ${f} internal/
 done
 
 mkdir junk
@@ -274,4 +274,3 @@ done
 
 mkdir uncategorized
 mv *.md uncategorized
-

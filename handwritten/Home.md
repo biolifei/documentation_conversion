@@ -13,6 +13,14 @@ Rosetta is distributed as source, and thus will require being [[compiled and ins
 
 ##Documentation Quick Links
 
-|[[Build Documentation]]|[[Rosetta Basics]]      |[[Application Documentation]]|[[Development Documentation]]|
+|[[Build Documentation]]|[[Rosetta Basics]]        |[[Application Documentation]]|[[Development Documentation]]|
 |:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/hammer.png]]         |[[/images/start_flag.png]]|[[/images/power.png]]        |[[/images/wrench.png]]       |
+|[[/images/hammer.png]] |[[/images/start_flag.png]]|[[/images/power.png]]        |[[/images/wrench.png]]       |
+
+<!--- BEGIN_INTERNAL -->
+|[[Internal Documentation]]|
+|:------------------------:|
+|[[/images/logo.png]]      |
+<!--- END_INTERNAL --> 
+
+
