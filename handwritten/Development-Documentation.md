@@ -9,25 +9,19 @@
 - [[Rosetta library structure]] - Overview of how the Rosetta library is structured.
 - [[src index page]] - Overview of the src directory.
 
-- [[namespacenumeric]]
-- [[namespacecore-1-1kinematics]]
-- [[namespace-objexx-f-c-l]]
-- [[namespacerosetta-1-1chemical]]
-- [[namespacerosetta-1-1conformation-1-1idealization]]
-- [[namespacerosetta-1-1conformation]]
-- [[namespacerosetta-1-1io-1-1pdb]]
-- [[namespacerosetta-1-1scoring]]
-- [[namespacerosetta]]
-- [[namespaces]]
-- [[namespacetesting]]
-- [[namespaceutility-1-1factory]]
-- [[namespaceutility-1-1io]]
-- [[namespaceutility-1-1keys]]
-- [[namespaceutility-1-1options]]
-- [[namespaceutility]]
-- [[utility-library]]
-- [[numeric-library]]
-- [[objexx-f-c-l-library]]
+- [[Namespace core]]
+    * [[Namespace core-chemical]]
+    * [[Namespace core-conformation]]
+        * [[Namespace core-conformation-idealization]]
+    * [[Namespace core-io-pdb]]
+    * [[Namespace core-scoring]]
+- [[Namespace utility]]
+    * [[Namespace utility-factory]]
+    * [[Namespace utility-io]]
+    * [[Namespace utility-keys]]
+    * [[Namespace utility-options]]
+- [[Namespace numeric]]
+- [[Namespace objexxFCL]]
 
 ##Rosetta style guidelines
 

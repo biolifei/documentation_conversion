@@ -36,9 +36,22 @@ classutility-1-1pointer-1-1-reference-count-m-i.md	ReferenceCountMI.md
 classutility-1-1vector0.md	vector0.md
 classutility-1-1vector1.md	vector1.md
 classutility-1-1vector-l.md	vectorL.md
+namespacerosetta-1-1chemical.md			namespace-core-chemical.md
+namespacerosetta-1-1conformation-1-1idealization.md	namespace-core-conformation-idealization.md
+namespacerosetta-1-1conformation.md		namespace-core-conformation.md
+namespacerosetta-1-1io-1-1pdb.md		namespace-core-io-pdb.md
+namespacerosetta-1-1scoring.md			namespace-core-scoring.md
+namespaceutility-1-1factory.md			namespace-utility-factory.md
+namespaceutility-1-1io.md			namespace-utility-io.md
+namespaceutility-1-1keys.md			namespace-utility-keys.md
+namespaceutility-1-1options.md			namespace-utility-options.md
+utility-library.md				namespace-utility.md
+numeric-library.md				namespace-numeric.md
+objexx-f-c-l-library.md				namespace-objexxFCL.md
 next-generation-k-i-c.md	next-generation-KIC.md
 py-m-o-l-server.md		pymol-server.md
 rosetta-d-n-a.md		rosetta-dna.md
+r-n-a-protein-changes.md	RNA-protein-changes.md
 u-b-q-conjugated.md		ubq-conjugated.md
 v-i-p-app.md			vip-app.md
 HEREDOC
@@ -71,7 +84,6 @@ cluster.md \
 commands-collection.md \
 ddg-monomer.md \
 density-map-scoring.md \
-dna-interface-design.md \
 docking-prepack-protocol.md \
 docking-protocol.md \
 doug-dock-design-min-mod2-cal-cal.md \
@@ -84,11 +96,9 @@ fixbb.md \
 flex-pep-dock.md \
 floppy-tail.md \
 fold-and-dock.md \
-fragment-picker.md \
+app-fragment-picker.md \
 fragment-picking-old.md \
 hbs-design.md \
-hotspot-hash.md \
-hshash-utils.md \
 interface-analyzer.md \
 ligand-dock.md \
 loopmodel-ccd.md \
@@ -105,7 +115,6 @@ minirosetta-comparative-modeling.md \
 minirosetta.md \
 mpi-msd.md \
 mr-protocols.md \
-multistate-design-ga.md \
 next-generation-KIC.md \
 oop-design.md \
 opt-e-parallel-doc.md \
@@ -154,7 +163,7 @@ preparing-structures.md \
 prepare-pdb-for-rosetta-with-relax.md \
 robust.md \
 resfiles.md \
-r-n-a-protein-changes.md \
+RNA-protein-changes.md \
 sqlite3-interface.md \
 symmetry.md \
 )
@@ -178,6 +187,18 @@ doxygen-tips.md \
 hbonds.md \
 mini-overview.md \
 mover-test.md \
+namespace-core-chemical.md \
+namespace-core-conformation-idealization.md \
+namespace-core-conformation.md \
+namespace-core-io-pdb.md \
+namespace-core-scoring.md \
+namespace-utility-factory.md \
+namespace-utility-io.md \
+namespace-utility-keys.md \
+namespace-utility-options.md \
+namespace-utility.md \
+namespace-numeric.md \
+namespace-objexxFCL.md \
 new-energy-method.md \
 owning-pointers.md \
 owning-pointer-usage-guidlines.md \
@@ -230,11 +251,18 @@ classrosetta-1-1conformation-1-1-torsion-angle.md \
 classrosetta-1-1io-1-1pdb-1-1-p-d-b-reader.md \
 directory-template-page.md \
 ## Redundant, this version is in pilot
-dna_interface_design.md \
+dna-interface-design.md \
 examples.md \
 ## Redundant, this version is in pilot
 flex-pep-docking.md \
 index.md \
+namespaces.md \
+namespacenumeric.md \
+namespacecore-1-1kinematics.md \
+namespace-objexx-f-c-l.md \
+namespacerosetta.md \
+namespacetesting.md \
+namespaceutility.md \
 pages.md \
 pilot-apps-info.md \
 template-index-page.md \

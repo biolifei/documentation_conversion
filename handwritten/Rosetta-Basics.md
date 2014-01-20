@@ -7,7 +7,7 @@
 
 ####Controling Rosetta Execution
 - [[JD2]]
-- [[r-n-a-protein-changes]] - Changes to get Rosetta to read RNA & protein simultaneously (I don't think these are needed anymore.)
+- [[RNA-protein-changes]] - Changes to get Rosetta to read RNA & protein simultaneously (I don't think these are needed anymore.)
 
 ####Common File Formats
 - [[Resfiles]]
