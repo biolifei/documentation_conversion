@@ -27,12 +27,25 @@ done << HEREDOC
 anchored-p-d-b-creator.md	anchored-pdb-creator.md
 antibody-assemble-c-d-rs.md	antibody-assemble-CDRs.md
 antibody-model-c-d-r-h3.md	antibody-model-CDR-H3.md
+classnumeric-1-1xyz-matrix.md	xyzMatrix.md
+classnumeric-1-1xyz-vector.md	xyzVector.md
+classutility-1-1pointer-1-1access-ptr.md	access-pointers.md
+classutility-1-1pointer-1-1owning-ptr.md        owning-pointers.md
+classutility-1-1pointer-1-1-reference-count.md	ReferenceCount.md
+classutility-1-1pointer-1-1-reference-count-m-i.md	ReferenceCountMI.md
+classutility-1-1vector0.md	vector0.md
+classutility-1-1vector1.md	vector1.md
+classutility-1-1vector-l.md	vectorL.md
 next-generation-k-i-c.md	next-generation-KIC.md
 py-m-o-l-server.md		pymol-server.md
 rosetta-d-n-a.md		rosetta-dna.md
 u-b-q-conjugated.md		ubq-conjugated.md
 v-i-p-app.md			vip-app.md
 HEREDOC
+
+#These get names based on the directory hierarchy, use globbing to move
+mv *-2doc-2numeric-2xyz-matrix-8dox-example.md xyzMatrix-example.md
+mv *-2doc-2numeric-2xyz-vector-8dox-example.md xyzVector-example.md
 
 #Rename using scons to build documentation
 mv using-scons.md Build-Documentation.md
@@ -159,7 +172,34 @@ done
 
 mkdir development_documentation
 development_pages=(\
+access-pointers.md \
+directory-core-fragments.md \
+doxygen-tips.md \
+hbonds.md \
+mini-overview.md \
+mover-test.md \
+new-energy-method.md \
+owning-pointers.md \
+owning-pointer-usage-guidlines.md \
+ReferenceCount.md \
+ReferenceCountMI.md \
+resfile-reader.md \
 rosetta-tests.md \
+rosetta-library-structure.md \
+run-unit-test.md \
+scientific-test.md \
+src-index-page.md \
+test.md \
+tracer.md \
+u-tracer.md \
+vector0.md \
+vector1.md \
+vectorL.md \
+writing-an-app.md \
+xyzMatrix-example.md \
+xyzMatrix.md \
+xyzVector-example.md \
+xyzVector.md \
 )
 for f in "${development_pages[@]}"; do
 	mv ${f} development_documentation/
@@ -180,6 +220,14 @@ mkdir junk
 junk_pages=(\
 annotated.md \
 classes.md \
+## Does not correspond to reality
+classrosetta-1-1conformation-1-1-amino-acid.md \
+## Does not correspond to reality
+classrosetta-1-1conformation-1-1-tetrad.md \
+## Does not correspond to reality
+classrosetta-1-1conformation-1-1-torsion-angle.md \
+## Basically Empty
+classrosetta-1-1io-1-1pdb-1-1-p-d-b-reader.md \
 directory-template-page.md \
 ## Redundant, this version is in pilot
 dna_interface_design.md \

@@ -1,13 +1,14 @@
 
 ##Developing for Rosetta
 
-- [[mini-overview]] 
-- [[doxygen-tips]]
-- [[writing-an-app]]
+- [[Rosetta overview|mini-overview]]
+- [[Doxygen tips]] - How to work with Rosetta's in-code documentation.
+- [[Writing an app]] - How to write your own Rosetta-based application.
 
 ##Organization overview.
-- [[rosetta-library-structure]]
-- [[src-index-page]]
+- [[Rosetta library structure]] - Overview of how the Rosetta library is structured.
+- [[src index page]] - Overview of the src directory.
+
 - [[namespacenumeric]]
 - [[namespacecore-1-1kinematics]]
 - [[namespace-objexx-f-c-l]]
@@ -30,56 +31,48 @@
 
 ##Rosetta style guidelines
 
-- [[owning-pointer-usage-guidlines]]
+- [[Owning pointer usage guidlines]] - Working with Rosetta's smart pointer system.
 
 ##Using particular classes - Some of this documention may be out of date.
 
-- [[tracer]] 
-- [[hbonds]]
-- [[directory-core-fragments]]
+- [[Owning pointers]] - Rosetta's shared-ownership intrusive reference counted smart pointer.
+    * [[Access pointers]] - An "owning pointer" which doesn't take ownership.
+    * [[ReferenceCount]] - How owning pointers are implemented.
+    * [[ReferenceCountMI]] - ReferenceCount for multiple inheritance.
+- [[Vector1]] - Rosetta's 1-based indexing vector class.
+    * [[Vector0]] - A 0-based indexing version of vector1.
+    * [[VectorL]] - The generalized L-based indexing vector, from which vector1 and vector0 are derived.
+- [[Tracer]] - Using the tracer output class.
 
-- [[2hd0-2morettr-2-rosetta3-2main-2source-2doc-2numeric-2xyz-matrix-8dox-example]]
-- [[2hd0-2morettr-2-rosetta3-2main-2source-2doc-2numeric-2xyz-vector-8dox-example]]
-- [[classnumeric-1-1xyz-matrix]]
-- [[classnumeric-1-1xyz-vector]]
-- [[classrosetta-1-1conformation-1-1-amino-acid]]
-- [[classrosetta-1-1conformation-1-1-tetrad]]
-- [[classrosetta-1-1conformation-1-1-torsion-angle]]
-- [[classrosetta-1-1io-1-1pdb-1-1-p-d-b-reader]]
-- [[classutility-1-1pointer-1-1access-ptr]]
-- [[classutility-1-1pointer-1-1owning-ptr]]
-- [[classutility-1-1pointer-1-1-reference-count]]
-- [[classutility-1-1pointer-1-1-reference-count-m-i]]
-- [[classutility-1-1vector0]]
-- [[classutility-1-1vector1]]
-- [[classutility-1-1vector-l]]
+- [[Hbonds]] - Dealing with the Hbond energy terms.
+- [[Directory-core-fragments]] - Using the classed located in src/core/fragments/
+
+- [[xyzVector]] - A vector specialized for Cartesian coordinate use.
+    * [[xyzVector example]]
+- [[xyzMatrix]] - A 3x3 matrix class specialized for Cartesian coordinate use.
+    * [[xyzMatrix example]]
 
 ##How to extend Rosetta
 
-- [[new-energy-method]] - How to add a new energy term.
-- [[resfile-reader]] - How to extend the resfile reader.
+- [[New energy method]] - How to add a new energy term.
+- [[Resfile reader]] - How to extend the resfile reader.
 
 ##Testing changes
 
-- [[rosetta-tests]]
-- [[test]]
-- [[run-unit-test]]
-- [[u-tracer]]
-- [[mover-test]] - How to write a unit test for a mover.  
-- [[scientific-test]]
+- [[Rosetta tests]] - A guide to running and writing tests for Rosetta
+- [[Run unit test]] - How to run the unit tests.
+- [[Write unit test|test]] - Writing unit tests.
+- [[U Tracer]] - How to use the UTracer tool in writing unit tests
+- [[Mover test]] - How to write a unit test for a mover.  
+- [[Scientific test]] - How to create and run scientific tests
 
 ##Internal development guides
 
-- [[a-guide-to-developing-in-rosetta]] - Overview for developing in RosettaCommons.  
-- [[before-commit-check]] - Things to check before committing.  
+- [[A guide to developing in Rosetta]] - Overview for developing in RosettaCommons.  
+- [[Before commit check]] - Things to check before committing.  
 - [[app-name]] - Application documentation page template.
     * [[template-app-documenation-page]] - Another application documentation template
 - [[reviewertemplate]] -- How to review documentation.  
-
-These look to be largely outdated and specific to Rosetta++. I put this list here as a reference of what kind of documentation I think belongs here.
-
-- [[documentation]] - multiligand
-- [[using-scons]]
 
 
 

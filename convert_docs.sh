@@ -28,7 +28,14 @@ for f in $FILES; do
 	echo "converting file: ${f}"
 
 	#Cleanup the HTML
-	iconv -f utf8 -t utf8 -c ${f} > ${f}.no_utf
+	#check for iconv dialect
+	iconv -l | grep utf8
+	if [ $? -eq 0 ]; then
+		format=utf8
+	else
+		format=UTF-8
+	fi
+	iconv -f ${format} -t ${format} -c ${f} > ${f}.no_utf
 	./sanitize_html.py -i ${f}.no_utf -o ${f}.clean	
 
 	#Convert to markdown
