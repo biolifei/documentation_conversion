@@ -20,10 +20,14 @@ if [ ! -d 'html' ]; then
   doxygen
 fi
 
+if [ ! -d 'wiki' ]; then
+  ./get_wiki.sh
+fi
+
 # Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
 # and cleanup specific html items with custom script
 mkdir markdown
-FILES=$(find html -type f -name *.html)
+FILES=$(find html wiki -type f -name *.html)
 for f in $FILES; do
 	echo "converting file: ${f}"
 
@@ -35,16 +39,16 @@ for f in $FILES; do
 	else
 		format=UTF-8
 	fi
-	iconv -f ${format} -t ${format} -c ${f} > ${f}.no_utf
-	./sanitize_html.py -i ${f}.no_utf -o ${f}.clean	
+	iconv -f ${format} -t ${format} -c "${f}" > "${f}.no_utf"
+	./sanitize_html.py -i "${f}.no_utf" -o "${f}.clean"	
 
 	#Convert to markdown
-	markdown_name=`echo ${f} | cut -d'.' -f1 | sed -e s/html/markdown/`
-	pandoc -f html -t markdown_github -o ${markdown_name}.md.dirty ${f}.clean
+	markdown_name=`echo "${f}" | cut -d'.' -f1 | sed -e s/html/markdown/`
+	pandoc -f html -t markdown_github -o "${markdown_name}.md.dirty" "${f}.clean"
 
 	#Cleanup the markdown
-	./cleanup_markdown.py -i ${markdown_name}.md.dirty -o ${markdown_name}.md
-	rm ${markdown_name}.md.dirty
+	./cleanup_markdown.py -i "${markdown_name}.md.dirty" -o "${markdown_name}.md"
+	rm "${markdown_name}.md.dirty"
 
 done
 
