@@ -12,10 +12,11 @@ for f in $FILES; do
 done
 
 #Gollum prefers dashes to underscores. Convert per preference. Also, eliminate multiple underscores.
+# Parenthesis also muck up things.
 FILES=$(find . -name '*_*')
 for f in $FILES; do
-	old_name=`echo ${f} | cut -d'/' -f2`
-	new_name=`echo ${old_name} | sed s/__*/-/g`
+	old_name=`echo "${f}" | cut -d'/' -f2`
+	new_name=`echo "${old_name}" | sed -e s/__*/-/g -e s/\(//g -e s/\)//g`
 	echo "renaming ${old_name} to ${new_name}"
 	mv ${old_name} ${new_name}
 done
@@ -123,7 +124,7 @@ pmut-scan-parallel.md \
 prepare-template-for-mr.md \
 pymol-server.md \
 relax.md \
-remodel.md \
+rosettaremodel.md \
 residue-energy-breakdown.md \
 rna-assembly.md \
 rna-denovo.md \
@@ -142,6 +143,41 @@ ubq-conjugated.md \
 unfolded-state-energy-calculator.md \
 vip-app.md \
 zinc-heterodimer-design.md \
+RosettaScripts.md \
+RosettaScripts-Documentation.md \
+Movers-RosettaScripts.md \
+Filters-RosettaScripts.md \
+TaskOperations-RosettaScripts.md \
+MetropolisHastings-Documentation.md \
+MetropolisHastingsMover.md \
+SimulatedAnnealing-MetropolisHastings.md \
+Tempering-MetropolisHastings.md \
+RosettaScripts-database-connection-options.md \
+FeaturesExtracting.md \
+FeaturesTutorials.md \
+FeaturesTutorialRunSciBench.md \
+FeaturesTutotiralRunFeaturesAnalysis.md \
+FeaturesTutorialSQLBasics.md \
+FeaturesTutorialRBasics.md \
+FeaturesTutorialGGplots2Basics.md \
+FeaturesTutorialPlotScript.md \
+FeaturesTutorialPlotTuning.md \
+FeaturesRScripts.md \
+FeaturesSettingUpR.md \
+FeatureReporters.md \
+FeaturesSchemaGeneration.md \
+FeaturesDatabaseSchema.md \
+MetaFeaturesReporters.md \
+ChemicalFeaturesReporters.md \
+OneBodyFeaturesReporters.md \
+TwoBodyFeaturesReporters.md \
+MultiBodyFeaturesReporters.md \
+MultiStructureFeaturesReporters.md \
+EnergyFunctionFeaturesReporters.md \
+ExperimentalFeaturesReporters.md \
+FeaturesScientificBenchmark.md \
+RotamerRecoveryScientificBenchmark.md \
+Remodel.md \
 )
 for f in "${app_pages[@]}"; do
 	mv ${f} application_documentation/
@@ -166,6 +202,7 @@ resfiles.md \
 RNA-protein-changes.md \
 sqlite3-interface.md \
 symmetry.md \
+Database-IO.md \
 )
 for f in "${basics_pages[@]}"; do
 	mv ${f} rosetta_basics/
@@ -221,55 +258,36 @@ xyzMatrix-example.md \
 xyzMatrix.md \
 xyzVector-example.md \
 xyzVector.md \
+RosettaScripts-Developer-Guide.md \
+RosettaScripts-Guidelines-for-writing-new-movers/filters.md \
 )
 for f in "${development_pages[@]}"; do
 	mv ${f} development_documentation/
 done
 
-mkdir internal-documentation
+mkdir internal_documentation
 internal_pages=(\
+app-name.md \
+template-app-documenation-page.md \
+reviewertemplate.md \
+a-guide-to-developing-in-rosetta.md \
+before-commit-check.md \
 hotspot-hash.md \
 hshash-utils.md \
 multi-residue-ligand-dock.md \
 multistate-design-ga.md \
 )
 for f in "${internal_pages[@]}"; do
-	mv ${f} internal-documentation/
+	mv ${f} internal_documentation/
 done
 
 mkdir junk
-junk_pages=(\
-annotated.md \
-classes.md \
-## Does not correspond to reality
-classrosetta-1-1conformation-1-1-amino-acid.md \
-## Does not correspond to reality
-classrosetta-1-1conformation-1-1-tetrad.md \
-## Does not correspond to reality
-classrosetta-1-1conformation-1-1-torsion-angle.md \
-## Basically Empty
-classrosetta-1-1io-1-1pdb-1-1-p-d-b-reader.md \
-directory-template-page.md \
-## Redundant, this version is in pilot
-dna-interface-design.md \
-examples.md \
-## Redundant, this version is in pilot
-flex-pep-docking.md \
-index.md \
-namespaces.md \
-namespacenumeric.md \
-namespacecore-1-1kinematics.md \
-namespace-objexx-f-c-l.md \
-namespacerosetta.md \
-namespacetesting.md \
-namespaceutility.md \
-pages.md \
-pilot-apps-info.md \
-template-index-page.md \
-using-subversion.md \
-)
+#Read each line of deleted_pages.txt file into array
+IFS=$'\n' read -d '' -r -a junk_pages < ../deleted_pages.txt
+
 for f in "${junk_pages[@]}"; do
-	mv ${f} junk/
+	markdown_name=`echo ${f}.md | sed -e 's/_/-/g' -e 's/^-*//'`
+	mv ${markdown_name} junk/
 done
 
 mkdir uncategorized

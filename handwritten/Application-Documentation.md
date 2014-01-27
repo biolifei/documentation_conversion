@@ -89,7 +89,8 @@ While most of these applications focus on prediction, many have options which wi
 - [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints.  
     * [[enzyme-design-deprecated]] - draft documentation?  
 
-- [[RosettaRemodel|remodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
+- [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
+    * [[Remodel]] - Additional remodel documentation
 
 - [[Pepspec]] - Evaluate and design peptide-protein interactions.  
 

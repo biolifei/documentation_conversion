@@ -11,6 +11,7 @@ SimulatedAnnealing_(MetropolisHastings)
 Tempering_(MetropolisHastings)
 Database_IO
 RosettaScripts_database_connection_options
+FeaturesExtracting
 FeaturesTutorials
 FeaturesTutorialRunSciBench
 FeaturesTutotiralRunFeaturesAnalysis
@@ -34,5 +35,4 @@ EnergyFunctionFeaturesReporters
 ExperimentalFeaturesReporters
 FeaturesScientificBenchmark
 RotamerRecoveryScientificBenchmark
-FeaturesExtracting
 Remodel

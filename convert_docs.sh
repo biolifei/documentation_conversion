@@ -21,6 +21,7 @@ if [ ! -d 'html' ]; then
 fi
 
 if [ ! -d 'wiki' ]; then
+  mkdir wiki/
   ./get_wiki.sh
 fi
 
@@ -43,7 +44,7 @@ for f in $FILES; do
 	./sanitize_html.py -i "${f}.no_utf" -o "${f}.clean"	
 
 	#Convert to markdown
-	markdown_name=`echo "${f}" | cut -d'.' -f1 | sed -e s/html/markdown/`
+	markdown_name=`echo "${f}" | cut -d'.' -f1 | sed -e s/html/markdown/ -e s/wiki/markdown/`
 	pandoc -f html -t markdown_github -o "${markdown_name}.md.dirty" "${f}.clean"
 
 	#Cleanup the markdown
