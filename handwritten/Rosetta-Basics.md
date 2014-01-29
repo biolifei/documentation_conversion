@@ -22,6 +22,7 @@
 - [[Making rosetta robust for running on large number of inputs|robust]]
 
 ####Misc
-- [[Database interface|sqlite3-interface]]
+- [[Database support]] - Relational database support in Rosetta.
+    *  [[Sqlite3-interface]] - More information on the sqlite database interface.
 - [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
 

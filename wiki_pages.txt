@@ -4,7 +4,7 @@ Movers_(RosettaScripts)
 Filters_(RosettaScripts)
 TaskOperations_(RosettaScripts)
 RosettaScripts_Developer_Guide
-RosettaScripts_Guidelines_for_writing_new_movers/filters
+RosettaScripts_Guidelines_for_writing_new_movers_and_filters
 MetropolisHastings_Documentation
 MetropolisHastingsMover
 SimulatedAnnealing_(MetropolisHastings)
@@ -36,3 +36,4 @@ ExperimentalFeaturesReporters
 FeaturesScientificBenchmark
 RotamerRecoveryScientificBenchmark
 Remodel
+PyRosetta_Toolkit

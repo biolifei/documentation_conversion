@@ -2,6 +2,16 @@
 
 cd markdown
 
+#Manual renaming.
+while read old_name new_name ; do
+  echo "manually renaming ${old_name}.md to ${new_name}.md"
+  mv ${old_name}.md ${new_name}.md
+done < ../renamed_pages.txt
+
+#These get names based on the directory hierarchy, use globbing to move
+mv *_2doc_2numeric_2xyz_matrix_8dox-example.md xyzMatrix-example.md
+mv *_2doc_2numeric_2xyz_vector_8dox-example.md xyzVector-example.md
+
 #Rename files starting with an underscore
 FILES=$(find . -name '_*')
 for f in $FILES; do
@@ -20,46 +30,6 @@ for f in $FILES; do
 	echo "renaming ${old_name} to ${new_name}"
 	mv ${old_name} ${new_name}
 done
-
-#Manual renaming.
-while read old_name new_name ; do
-  mv $old_name $new_name
-done << HEREDOC
-anchored-p-d-b-creator.md	anchored-pdb-creator.md
-antibody-assemble-c-d-rs.md	antibody-assemble-CDRs.md
-antibody-model-c-d-r-h3.md	antibody-model-CDR-H3.md
-classnumeric-1-1xyz-matrix.md	xyzMatrix.md
-classnumeric-1-1xyz-vector.md	xyzVector.md
-classutility-1-1pointer-1-1access-ptr.md	access-pointers.md
-classutility-1-1pointer-1-1owning-ptr.md        owning-pointers.md
-classutility-1-1pointer-1-1-reference-count.md	ReferenceCount.md
-classutility-1-1pointer-1-1-reference-count-m-i.md	ReferenceCountMI.md
-classutility-1-1vector0.md	vector0.md
-classutility-1-1vector1.md	vector1.md
-classutility-1-1vector-l.md	vectorL.md
-namespacerosetta-1-1chemical.md			namespace-core-chemical.md
-namespacerosetta-1-1conformation-1-1idealization.md	namespace-core-conformation-idealization.md
-namespacerosetta-1-1conformation.md		namespace-core-conformation.md
-namespacerosetta-1-1io-1-1pdb.md		namespace-core-io-pdb.md
-namespacerosetta-1-1scoring.md			namespace-core-scoring.md
-namespaceutility-1-1factory.md			namespace-utility-factory.md
-namespaceutility-1-1io.md			namespace-utility-io.md
-namespaceutility-1-1keys.md			namespace-utility-keys.md
-namespaceutility-1-1options.md			namespace-utility-options.md
-utility-library.md				namespace-utility.md
-numeric-library.md				namespace-numeric.md
-objexx-f-c-l-library.md				namespace-objexxFCL.md
-next-generation-k-i-c.md	next-generation-KIC.md
-py-m-o-l-server.md		pymol-server.md
-rosetta-d-n-a.md		rosetta-dna.md
-r-n-a-protein-changes.md	RNA-protein-changes.md
-u-b-q-conjugated.md		ubq-conjugated.md
-v-i-p-app.md			vip-app.md
-HEREDOC
-
-#These get names based on the directory hierarchy, use globbing to move
-mv *-2doc-2numeric-2xyz-matrix-8dox-example.md xyzMatrix-example.md
-mv *-2doc-2numeric-2xyz-vector-8dox-example.md xyzVector-example.md
 
 #Rename using scons to build documentation
 mv using-scons.md Build-Documentation.md
@@ -143,6 +113,14 @@ ubq-conjugated.md \
 unfolded-state-energy-calculator.md \
 vip-app.md \
 zinc-heterodimer-design.md \
+Remodel.md \
+)
+for f in "${app_pages[@]}"; do
+	mv ${f} application_documentation/
+done
+
+mkdir scripting_documentation
+scripting_pages=(\
 RosettaScripts.md \
 RosettaScripts-Documentation.md \
 Movers-RosettaScripts.md \
@@ -177,18 +155,18 @@ EnergyFunctionFeaturesReporters.md \
 ExperimentalFeaturesReporters.md \
 FeaturesScientificBenchmark.md \
 RotamerRecoveryScientificBenchmark.md \
-Remodel.md \
+PyRosetta-Toolkit.md \
 )
-for f in "${app_pages[@]}"; do
-	mv ${f} application_documentation/
+for f in "${scripting_pages[@]}"; do
+	mv ${f} scripting_documentation/
 done
 
 mkdir rosetta_basics
 basics_pages=(\
 atomtree-overview.md \
 constraint-file.md \
+database-support.md \
 foldtree-overview.md \
-full-options-list.md \
 jd2.md \
 match-cstfile-format.md \
 minimization-overview.md \
@@ -249,7 +227,7 @@ scientific-test.md \
 src-index-page.md \
 test.md \
 tracer.md \
-u-tracer.md \
+UTracer.md \
 vector0.md \
 vector1.md \
 vectorL.md \
@@ -259,7 +237,7 @@ xyzMatrix.md \
 xyzVector-example.md \
 xyzVector.md \
 RosettaScripts-Developer-Guide.md \
-RosettaScripts-Guidelines-for-writing-new-movers/filters.md \
+RosettaScripts-Guidelines-for-writing-new-movers-and-filters.md \
 )
 for f in "${development_pages[@]}"; do
 	mv ${f} development_documentation/
@@ -289,6 +267,10 @@ for f in "${junk_pages[@]}"; do
 	markdown_name=`echo ${f}.md | sed -e 's/_/-/g' -e 's/^-*//'`
 	mv ${markdown_name} junk/
 done
+
+#Because we're going to be using directly generated one, rather than the doxygen converted one.
+#Additionally, we don't want to kill any links, like we would if we listed it in deleted_pages.txt
+mv full-options-list.md  junk/
 
 mkdir uncategorized
 mv *.md uncategorized

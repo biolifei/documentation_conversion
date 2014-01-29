@@ -57,12 +57,12 @@ done
 
 #Copy manually created Home page and images directory to new repo
 mkdir $1
-cp -r images $1
-cp -r markdown/* $1
+cp -ir images $1
+cp -ir markdown/* $1
 rm -rf ${1}/junk/
-cp -r handwritten/* $1
-
-cp remove_internal.py $1
+cp -ir handwritten/* $1
+cp -ir doc/full-options-list.md ${1}
+cp -i remove_internal.py $1
 
 cd $1
 git init
