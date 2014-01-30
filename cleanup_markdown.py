@@ -38,6 +38,27 @@ def md_link_sub( match ):
     else:
         return '[['+text+'|'+target+']]'
 
+#Pattern to change Markdown style links to Gollum style links
+# - note use of non-greedy star and the grouping of the before and after
+# The not-colon is to avoid translating absolute mailto links, which need the markdown syntax.
+md_img_pattern = re.compile(r'''[!]    # A starting literal "!"
+\[(.*?)\]    # The link text, stored as group \1
+\(            # The start parenthesis for the target
+([^:]*?)      # The relative link target, stored as group \2
+([ ]".*?")?   # The optional title text in quotes
+\)            # The closing paren for the target block.
+''', re.VERBOSE) # Allow these comments and multiline.
+
+def md_img_sub( match ):
+    target = match.groups()[1]
+    return '[[/images/'+target+']]'
+
+html_img_pattern = re.compile(r'''<img[^>]*src="([^"].*?)"[^>]*/>''')
+
+def html_img_sub( match ):
+    target = match.groups()[0]
+    return '[[/images/'+target+']]'
+
 #Convert file name to page title
 title=args.input.split('/')[-1].split('.')[0].replace("_", " ").title()
 
@@ -47,6 +68,12 @@ new_file = open(args.output, 'w')
 #add the page title to the first line of the new file
 new_file.write("<!-- --- title: " + title + " -->")
 for line in old_file:
+        if html_img_pattern.search(line):
+            #Assume link isn't split across lines.
+            line = html_img_pattern.sub( html_img_sub, line )
+        if md_img_pattern.search(line):
+            #Must come before link rearrangement
+            line = md_img_pattern.sub( md_img_sub, line )
         if md_link_pattern.search(line):
             #Assume link isn't split across lines.
             line = md_link_pattern.sub( md_link_sub, line )

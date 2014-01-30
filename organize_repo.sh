@@ -144,6 +144,7 @@ FeaturesRScripts.md \
 FeaturesSettingUpR.md \
 FeatureReporters.md \
 FeaturesSchemaGeneration.md \
+Features-schema.md \
 FeaturesDatabaseSchema.md \
 MetaFeaturesReporters.md \
 ChemicalFeaturesReporters.md \
@@ -271,6 +272,19 @@ done
 #Because we're going to be using directly generated one, rather than the doxygen converted one.
 #Additionally, we don't want to kill any links, like we would if we listed it in deleted_pages.txt
 mv full-options-list.md  junk/
+
+mkdir -p images
+
+IFS=$'\n' read -d '' -r -a doxy_images < ../doxy_images.txt
+for f in "${doxy_images[@]}"; do
+	if [ -e "../html/${f}" ]; then
+ 		cp "../html/${f}" images/
+	elif [ -e "../doc/images/${f}" ]; then
+		cp "../doc/images/${f}" images/
+	else
+		echo "WARNING: Image ${f} requensed but not found"
+	fi
+done
 
 mkdir uncategorized
 mv *.md uncategorized

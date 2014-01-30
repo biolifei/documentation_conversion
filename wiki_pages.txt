@@ -25,6 +25,7 @@ FeaturesSettingUpR
 FeatureReporters
 FeaturesSchemaGeneration
 FeaturesDatabaseSchema
+Features_schema
 MetaFeaturesReporters
 ChemicalFeaturesReporters
 OneBodyFeaturesReporters

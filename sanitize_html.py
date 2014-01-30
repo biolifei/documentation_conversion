@@ -7,6 +7,13 @@ f = open('wiki_pages.txt')
 wiki_pages = [l.strip() for l in f.readlines()]
 f.close()
 
+f = open('wiki_images.txt')
+known_images = [l.strip().split('/')[-1] for l in f.readlines()]
+f.close()
+f = open('doxy_images.txt')
+known_images.extend( [l.strip() for l in f.readlines()] )
+f.close()
+
 f = open('deleted_pages.txt')
 deleted_pages = [l.strip() + '.html' for l in f.readlines()]
 f.close()
@@ -43,7 +50,9 @@ if doxyfooter is not None:
 
 images = soup.find_all('img')
 for image in images:
-    print "IMAGE:", image['src']
+    image['src'] = image['src'].split('/')[-1]
+    if image['src'] not in known_images:
+        print "WARNING: Image not found:", image['src']
 
 #HTML from mediawiki issues
 toc_tag = soup.find('table', id="toc")
@@ -53,7 +62,11 @@ if toc_tag is not None:
 for a in soup.find_all('a', href=True):
     if a['href'].split('#')[0] == htmlname:
         #Links to self are silly.
-        a.replace_with(' '.join(a.contents))
+        a.replace_with(str(a.contents))
+        continue
+    if a['href'].startswith("https://wiki.rosettacommons.org/index.php/File:"):
+        #Don't need clickable link
+        a.replace_with(str(a.contents))
         continue
     if 'Rosetta.Developer.Documentation' in a['href']:
         print "WARNING: Link to developer documentation found in", args.input, ":", a['href']

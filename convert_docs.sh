@@ -16,13 +16,13 @@ rm -rf markdown/
 
 # Build the doc html
 
-if [ ! -d 'html' ]; then
-  doxygen
-fi
-
 if [ ! -d 'wiki' ]; then
   mkdir wiki/
   ./get_wiki.sh
+fi
+
+if [ ! -d 'html' ]; then
+  doxygen
 fi
 
 # Convert to github-flavored markdown. First remove all non-UTF8 characters with iconv
@@ -58,6 +58,7 @@ done
 #Copy manually created Home page and images directory to new repo
 mkdir $1
 cp -ir images $1
+cp -ir wiki/images $1
 cp -ir markdown/* $1
 rm -rf ${1}/junk/
 cp -ir handwritten/* $1
