@@ -165,20 +165,33 @@ done
 mkdir rosetta_basics
 basics_pages=(\
 atomtree-overview.md \
+chemical_shift_file.md \
 constraint-file.md \
+command_options.md \
+database.md \
 database-support.md \
+fasta_file.md \
 foldtree-overview.md \
+fragment_file.md \
+input_options.md \
 jd2.md \
+loops_file.md \
 match-cstfile-format.md \
 minimization-overview.md \
 movemap-file.md \
+output_options.md \
+packing_options.md \
 packer-task.md \
 preparing-ligands.md \
 preparing-structures.md \
 prepare-pdb-for-rosetta-with-relax.md \
 robust.md \
 resfiles.md \
+run_options.md \
 RNA-protein-changes.md \
+score_options.md \
+score_types.md \
+silent_file.md \
 sqlite3-interface.md \
 symmetry.md \
 Database-IO.md \
@@ -189,7 +202,9 @@ done
 
 mkdir build_documentation
 build_pages=(\
-Build-Documentation.md
+Build-Documentation.md \
+build.md \
+platforms.md \
 )
 for f in "${build_pages[@]}"; do
 	mv ${f} build_documentation/
